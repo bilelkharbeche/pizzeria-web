@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+</head>
+<body>
+	<header>
+		<h1>Gestion des clients</h1>
+		<nav>
+			<a href="/listeClients">liste des clients</a> / <a href="/">Accueil</a>
+		</nav>
+	</header>
+	<main>
+	<section>
+		<h2>Création d'un client</h2>
+		<form action="/clients" method="post">
+			<label>Nom</label> <input type="text" name="nom"><br> <label>Prénom</label>
+			<input type="text" name="prenom"><br> <label>Ville</label>
+			<input type="text" name="ville"><br> <label>Age</label>
+			<input type="number" name="age"> <br> <input
+				type="submit" value="ajouter">
+		</form>
+	</section>
+
+	</main>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+</head>
+<body>
+	<header>
+		<h1>Gestion des Pizzas</h1>
+		<nav>
+			<a href="/listePizzas">liste des Pizzas</a> / <a href="/">Accueil</a>
+		</nav>
+	</header>
+	<main>
+	<section>
+		<h2>Création d'une Pizza</h2>
+		<form action="/pizzas" method="post">
+            <label>Libellé</label> <input type="text" name="libelle"><br> 
+            <label>Référence</label><input type="text" name="reference"><br> 
+            <label>Prix</label><input type="number" step="0.01" name="prix"><br> 
+            <label>Photo</label><input type="text" name="photo"> <br> 
+            <input type="submit" value="ajouter">
+		</form>
+	</section>
+
+	</main>
+</body>
+</html>
