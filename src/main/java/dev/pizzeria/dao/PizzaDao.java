@@ -31,7 +31,7 @@ public class PizzaDao {
 			statement = conn.createStatement();
 
 			statement
-					.executeUpdate("INSERT INTO PIZZAS (LIBELLE, REFERENCE, PRIX, PHOTO) VALUES ('" + pizza.getLibelle()
+					.executeUpdate("INSERT INTO pizzas (LIBELLE, REFERENCE, PRIX, PHOTO) VALUES ('" + pizza.getLibelle()
 							+ "','" + pizza.getReference() + "'," + pizza.getPrix() + ",'" + pizza.getPhoto() + "')");
 
 			conn.commit();
@@ -73,7 +73,7 @@ public class PizzaDao {
 			conn.setAutoCommit(false);
 			statement = conn.createStatement();
 
-			cursor = statement.executeQuery("SELECT * FROM PIZZAS");
+			cursor = statement.executeQuery("SELECT * FROM pizzas");
 
 			while (cursor.next()) {
 				String libelle = cursor.getString("libelle");

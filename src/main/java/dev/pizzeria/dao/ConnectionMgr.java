@@ -9,7 +9,7 @@ import dev.pizzeria.exception.TechnicalException;
 
 public class ConnectionMgr {
 
-	private static ResourceBundle monFichierConf = ResourceBundle.getBundle("database");
+	private static ResourceBundle monFichierConf = ResourceBundle.getBundle("database-cloud");
 	private static Connection conn;
 
 	public static Connection getInstance() {
