@@ -22,8 +22,15 @@ import dev.pizzeria.model.Pizza;
  */
 public class PizzaController extends HttpServlet {
 
+	/** TEMPLATE_GESTION_PIZZAS : String */
 	private static final String TEMPLATE_GESTION_PIZZAS = "templates/gestionDesPizzas.html";
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.
+	 * HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setCharacterEncoding("UTF-8");
@@ -31,6 +38,12 @@ public class PizzaController extends HttpServlet {
 		writer.write(recupererPageHtml(this, TEMPLATE_GESTION_PIZZAS));
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.
+	 * HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -40,7 +53,8 @@ public class PizzaController extends HttpServlet {
 
 		try {
 			Pizza pizza = validerPizza(req);
-			PizzaDao.listePizza.add(pizza);
+			PizzaDao pizzaDao = new PizzaDao();
+			pizzaDao.addPizza(pizza);
 			resp.sendRedirect("/listePizzas");
 
 		} catch (PizzaInvalideException e) {
@@ -57,7 +71,7 @@ public class PizzaController extends HttpServlet {
 	 * une Pizza si les champs sont valides
 	 * 
 	 * @param req
-	 *            requete client
+	 *            requete pizza
 	 * @return une Pizza
 	 * @throws PizzaInvalideException
 	 *             champs invalide

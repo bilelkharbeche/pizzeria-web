@@ -22,8 +22,6 @@ import dev.pizzeria.model.Pizza;
  */
 public class ListePizzaController extends HttpServlet {
 
-	/** LISTE_PIZZA : List<Pizza> liste des pizzas */
-	private static final List<Pizza> LISTE_PIZZA = PizzaDao.listePizza;
 	/** TEMPLATE_LISTE_PIZZA : String chemin vers listePizza.html */
 	private static final String TEMPLATE_LISTE_PIZZA = "templates/listePizza.html";
 
@@ -46,16 +44,16 @@ public class ListePizzaController extends HttpServlet {
 	 * @param sBuilder
 	 */
 	private void genererListePizza(StringBuilder sBuilder) {
-		for (int i = 0; i < LISTE_PIZZA.size(); i++) {
-			sBuilder.append("<tr><td>").append(i).append("</td>")
-					.append("<td>").append(LISTE_PIZZA.get(i).getLibelle()).append("</td>")
-					.append("<td>").append(LISTE_PIZZA.get(i).getReference()).append("</td>")
-					.append("<td>").append(LISTE_PIZZA.get(i).getPrix()).append("</td>")
-					.append("<td><img style=\"max-width:150px\" src=\"").append(LISTE_PIZZA.get(i).getPhoto()).append(
-							"\"></td>")
-					.append("<td>").append("<a href = \"#\">Modifier</a>").append("</td>")
-					.append("<td>").append("<a href = \"#\">Supprimer</a>").append("</td>")
-					.append("</tr>");
+		PizzaDao pizzaDao = new PizzaDao();
+		List<Pizza> pizzas = pizzaDao.findAllPizza();
+
+		for (int i = 0; i < pizzas.size(); i++) {
+			sBuilder.append("<tr><td>").append(i).append("</td>").append("<td>").append(pizzas.get(i).getLibelle())
+					.append("</td>").append("<td>").append(pizzas.get(i).getReference()).append("</td>").append("<td>")
+					.append(pizzas.get(i).getPrix()).append("</td>").append("<td><img style=\"max-width:150px\" src=\"")
+					.append(pizzas.get(i).getPhoto()).append("\"></td>").append("<td>")
+					.append("<a href = \"#\">Modifier</a>").append("</td>").append("<td>")
+					.append("<a href = \"#\">Supprimer</a>").append("</td>").append("</tr>");
 		}
 	}
 }

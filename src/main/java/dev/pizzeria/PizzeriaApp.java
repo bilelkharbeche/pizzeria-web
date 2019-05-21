@@ -1,5 +1,7 @@
 package dev.pizzeria;
 
+import java.sql.DriverManager;
+
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
@@ -23,6 +25,8 @@ import dev.pizzeria.controller.pizza.PizzaController;
 public class PizzeriaApp {
 
 	public static void main(String[] args) throws Exception {
+
+		DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 
 		Server server = new Server();
 
